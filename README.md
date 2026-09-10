@@ -163,7 +163,7 @@ New-Item -ItemType Junction -Path ".\inputs\remote" -Target "C:\Users\Public\Doc
 ReEDS currently expects Conda-style environment variables in order to sun successfully. When using UV, each instance of powershell will need to set these variables before running ReEDS. You can enter the below commands into the terminal before running ReEDS, set personal or VS Code workspace-level .env files, or use the below helper script to set these variables.
 
 ```bash
-export CONDA_DEFAULT_ENV=reeds2
+export CONDA_DEFAULT_ENV=reeds
 export CONDA_PREFIX="$PWD/.venv"
 ```
 
@@ -203,7 +203,7 @@ More bootstrap-only options: `-q` (or `--quiet`) disables the ntfy.sh notificati
 ReEDS currently expects Conda-style environment variables. When using UV, set these variables before running ReEDS or ideally in your dotenv file, like so
 
 ```bash
-echo 'export CONDA_DEFAULT_ENV=reeds2' >> ~/.bashrc
+echo 'export CONDA_DEFAULT_ENV=reeds' >> ~/.bashrc
 echo 'export CONDA_PREFIX="$PWD/.venv"' >> ~/.bashrc
 source ~/.bashrc
 ```
@@ -265,7 +265,7 @@ uv sync --extra dev
 When running with UV, set:
 
 ```bash
-export CONDA_DEFAULT_ENV=reeds2
+export CONDA_DEFAULT_ENV=reeds
 export CONDA_PREFIX="$PWD/.venv"
 ```
 
