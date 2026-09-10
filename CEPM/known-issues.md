@@ -240,6 +240,14 @@ written up as Issue 2 in
 [SUBNATIONAL_REGION_SUPPORT.md](guidance/SUBNATIONAL_REGION_SUPPORT.md). Workaround: avoid
 `GSw_ZoneSet=z90` for now, and don't batch it alongside other cases you need to run.
 
+**Also affects `MultiMetricRA`** (the test case restored into `cases_test.csv` from
+upstream's `2026.08.03` release as part of the August 2026 sync — see
+`reeds-to-cepm-log.md`'s "Custom test-case reconciliation" entry): its `GSw_ZoneSet`
+cell is blank in upstream's own file too, which falls through to `cases.csv`'s
+file-level default — `z90`. So `MultiMetricRA` will hit this exact gap and fail to
+launch until this is fixed, the same as it would on a fresh upstream checkout. Not
+something introduced by the sync; flagging so it isn't mistaken for a new bug.
+
 **Fixed upstream?** Not directly, but effectively moot there. `hierarchy_from134.csv`
 is missing from `inputs/zones/z90/` at tag `2026.08.03` too — the same underlying
 data gap, not RMI-introduced. But it no longer matters upstream, because upstream's
